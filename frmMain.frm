@@ -66,19 +66,19 @@ Begin VB.Form frmMain
       BackColor       =   &H00FFFFFF&
       Caption         =   "µ˜ ‘»’÷æ"
       Height          =   5115
-      Left            =   0
+      Left            =   120
       TabIndex        =   2
-      Top             =   1080
-      Width           =   11655
+      Top             =   1020
+      Width           =   11475
       Begin VB.TextBox Txtlog 
-         Height          =   4590
+         Height          =   4650
          Left            =   180
          Locked          =   -1  'True
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   3
-         Top             =   420
-         Width           =   11355
+         Top             =   300
+         Width           =   11115
       End
    End
    Begin VB.PictureBox Picture1 

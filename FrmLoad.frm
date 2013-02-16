@@ -41,6 +41,11 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 '显示加载窗体
 Option Explicit
+Private Declare Sub InitCommonControls Lib "comctl32.dll" ()
+
+Private Sub Form_Initialize()
+InitCommonControls '应用XP风格控件
+End Sub
 
 Private Sub Form_Load()
 Me.Show
