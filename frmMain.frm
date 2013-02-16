@@ -127,8 +127,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+'主窗体
 Option Explicit
-
 
 Private Sub CmdAbout_Click()
 FrmAbout.Show
@@ -152,8 +152,8 @@ End Sub
 Private Sub Form_Load()
     Dim ver As String
     ver = GetFileVerInfo(APPPath("QuickClip.exe"))(0)
-    log "QuickClip 版本" & ver
-    If IsRunningOnRemovableDevice Then log "可移动磁盘优化已启用"
+    Log "QuickClip 版本" & ver
+    If IsRunningOnRemovableDevice Then Log "可移动磁盘优化已启用"
     LblTitle.Caption = "QuickClip " & ver
     Load FrmCatchMsg
 End Sub
@@ -161,7 +161,7 @@ End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
     Unload FrmCatchMsg
-    log "QuickClip退出"
+    Log "QuickClip退出"
     Log_Close
     End
 End Sub

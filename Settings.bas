@@ -1,4 +1,5 @@
 Attribute VB_Name = "Settings"
+'程序的全局设置项
 Option Explicit
 '格式常量
 Const DateFormat As String = "yyyymmdd"

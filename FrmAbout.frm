@@ -141,6 +141,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+'关于本软件
 Option Explicit
 
 Private Sub CmdClose_Click()

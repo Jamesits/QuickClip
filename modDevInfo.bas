@@ -1,4 +1,5 @@
 Attribute VB_Name = "modDevInfo"
+‘获取磁盘信息，用于判断程序是否从可移动磁盘启动，并做一些优化
 Option Explicit
 
 '获取特定磁盘信息：GetDeviceInf

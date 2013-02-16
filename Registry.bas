@@ -1,4 +1,5 @@
 Attribute VB_Name = "Registry"
+'注册表读写模块（用于写入安装信息，未完成）
 Option Explicit
 
 Private Const HKEY_CLASSES_ROOT = -2147483648#

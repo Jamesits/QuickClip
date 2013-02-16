@@ -1,4 +1,5 @@
 Attribute VB_Name = "LogRecorder"
+'日志记录相关模块
 Option Explicit
 
 Dim Log_isOpen As Boolean
