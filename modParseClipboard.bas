@@ -1,4 +1,5 @@
 Attribute VB_Name = "modParseClipboard"
+'模块：剪贴板事件处理、文件保存
 Option Explicit
 Public Const CF_HDROP = 15
 Public Type POINT

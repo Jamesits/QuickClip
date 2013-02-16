@@ -1,4 +1,5 @@
 Attribute VB_Name = "modExeParser"
+'获取exe文件信息
 Option Explicit
 'MsgBox GetFileVerInfo("C:\windows\notepad.exe")(0)        '版本号
 'MsgBox GetFileVerInfo("C:\windows\notepad.exe")(1)        '产品名称
@@ -92,7 +93,7 @@ Public Function pathStringParser(ByVal Path As String) As String
 pathStringParser = IIf(Right(Path, 1) = "\", Path, Path & "\")
 End Function
 
-Public Function APPPath(Optional ByVal filename As String) As String
-If IsMissing(filename) Then filename = ""
-APPPath = pathStringParser(App.Path) & filename
+Public Function APPPath(Optional ByVal Filename As String) As String
+If IsMissing(Filename) Then Filename = ""
+APPPath = pathStringParser(App.Path) & Filename
 End Function

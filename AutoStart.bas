@@ -1,4 +1,5 @@
 Attribute VB_Name = "AutoStart"
+'设置开机自启动的实验性模块（未完成）
 Option Explicit
 
 '提权执行 CreateObject("Shell.Application").ShellExecute "文件名", "参数", "", "RunAs"

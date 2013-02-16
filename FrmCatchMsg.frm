@@ -21,6 +21,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+'捕获系统消息的辅助窗体
 Option Explicit
 Public WithEvents objSC As cSubclass
 Attribute objSC.VB_VarHelpID = -1
