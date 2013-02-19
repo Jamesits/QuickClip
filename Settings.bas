@@ -85,7 +85,7 @@ GetIniN "Text", "RecInformation", Text_RecInformation, 0 'GetOptionGroupValue(Op
 GetIniN "Text", "FilterMinBytes", Text_FilterMinBytes, 0
 GetIniN "Text", "FilterMaxBytes", Text_FilterMaxBytes, 0
 GetIniN "Bitmap", "Save", Bitmap_Save, 1
-GetIniS "Bitmap", "Name", Bitmap_Name, "QClip_%DATE%%TIME%.bmp"
+GetIniS "Bitmap", "Name", Bitmap_Name, "QClip_%DATE%%TIME%%MS%.bmp"
 GetIniN "File", "Save", File_Save, 1 'GetOptionGroupValue(OptProcessFile)
 GetIniS "File", "LogPath", File_LogPath, "QClip_%DATE%%TIME%.log"
 GetIniS "File", "SaveFolder", File_SaveFolder, "Files_%DATE%TIME%"

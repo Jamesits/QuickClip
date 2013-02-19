@@ -108,7 +108,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 '主窗体
 Option Explicit
-
+Public ver As String
 Private Sub CmdAbout_Click()
 FrmAbout.Show
 End Sub
@@ -129,12 +129,13 @@ onMonitor = Not (onMonitor)
 End Sub
 
 Private Sub Form_Load()
-    Dim ver As String
-    ver = GetFileVerInfo(APPPath("QuickClip.exe"))(0)
+    
+    ver = App.Major & "." & Format(App.Minor, "00") & "." & Format(App.Revision, "0000") 'GetFileVerInfo(APPPath(App.EXEName))(0)
     Log "QuickClip 版本" & ver
-    If IsRunningOnRemovableDevice Then Log "可移动磁盘优化已启用"
+    'If IsRunningOnRemovableDevice Then Log "可移动磁盘优化已启用"
     LblTitle.Caption = "QuickClip " & ver
     Load FrmCatchMsg
+    If Common_AutoCapture Then CmdStartMonitor_Click
 End Sub
 
 

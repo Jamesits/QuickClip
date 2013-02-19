@@ -70,6 +70,7 @@ Begin VB.Form FrmSetting
       Top             =   1680
       Width           =   6795
       Begin VB.TextBox TxtFileFolderPath 
+         Enabled         =   0   'False
          Height          =   375
          Left            =   2520
          TabIndex        =   30
@@ -99,6 +100,7 @@ Begin VB.Form FrmSetting
       Begin VB.OptionButton OptProcessFile 
          BackColor       =   &H00FFFFFF&
          Caption         =   "复制文件"
+         Enabled         =   0   'False
          Height          =   255
          Index           =   2
          Left            =   180
@@ -204,6 +206,7 @@ Begin VB.Form FrmSetting
       Begin VB.CheckBox ChkClearBeforeClose 
          BackColor       =   &H00FFFFFF&
          Caption         =   "关闭软件时清空剪贴板内容"
+         Enabled         =   0   'False
          Height          =   315
          Left            =   2520
          TabIndex        =   42
@@ -213,6 +216,7 @@ Begin VB.Form FrmSetting
       Begin VB.CheckBox ChkDisableUSBMode 
          BackColor       =   &H00FFFFFF&
          Caption         =   "强制禁用可移动磁盘优化（实验性功能）"
+         Enabled         =   0   'False
          Height          =   255
          Left            =   2520
          TabIndex        =   31
@@ -231,6 +235,7 @@ Begin VB.Form FrmSetting
       Begin VB.CheckBox ChkHideMode 
          BackColor       =   &H00FFFFFF&
          Caption         =   "启动后隐藏主界面"
+         Enabled         =   0   'False
          Height          =   255
          Left            =   180
          TabIndex        =   6
@@ -239,6 +244,7 @@ Begin VB.Form FrmSetting
       End
       Begin VB.CommandButton CmdBrowse 
          Caption         =   "浏览"
+         Enabled         =   0   'False
          Height          =   375
          Left            =   5880
          TabIndex        =   5
@@ -246,6 +252,7 @@ Begin VB.Form FrmSetting
          Width           =   675
       End
       Begin VB.TextBox TxtPlace 
+         Enabled         =   0   'False
          Height          =   375
          Left            =   960
          TabIndex        =   4
