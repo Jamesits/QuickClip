@@ -1,10 +1,10 @@
-frmMain = 185, 206, 996, 656, C, 135, 49, 946, 499, C
+frmMain = 185, 206, 996, 656, C, 135, 49, 1056, 638, C
 cSubclass = 88, 100, 899, 550, C
 modINIParser = 150, 150, 1119, 540, C
 modExeParser = 125, 125, 1055, 515, C
 FrmSetting = 78, 361, 1047, 777, C, 19, -5, 949, 385, C
 FrmAbout = 50, 50, 1019, 466, C, 310, 142, 856, 558, C
-modParseClipboard = 91, 55, 1060, 471, C
+modParseClipboard = 42, 58, 1011, 474, Z
 Settings = 169, 249, 1163, 587, C
 FrmLoad = 50, 50, 1012, 463, C, 25, 25, 987, 438, C
 SystemInf = 169, 30, 1156, 377, C
@@ -14,3 +14,4 @@ AutoStart = 50, 50, 1006, 421, C
 Registry = 100, 100, 1056, 471, C
 FrmCatchMsg = 125, 125, 981, 563, C, 150, 150, 898, 588, C
 GlobalSwitch = 25, 25, 881, 463, C
+FrmSavePicture = 102, 182, 958, 620, C, 49, 15, 905, 453, C
