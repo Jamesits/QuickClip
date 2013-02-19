@@ -21,7 +21,7 @@ Public Declare Function GetClipboardData Lib "user32" (ByVal wFormat As Long) As
 Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (Destination As Any, Source As Any, ByVal Length As Long)
 Public Declare Function SetClipboardViewer Lib "user32.dll" (ByVal hwnd As Long) As Long
 Public Const WM_DRAWCLIPBOARD As Long = &H308
-Public Declare Function CreateThreadE Lib "VBCreateThread.dll" (ByVal address As Long, ByVal p0 As Long, ByVal p1 As Long, ByVal p2 As Long, ByVal p3 As Long) As Long
+'Public Declare Function CreateThreadE Lib "VBCreateThread.dll" (ByVal address As Long, ByVal p0 As Long, ByVal p1 As Long, ByVal p2 As Long, ByVal p3 As Long) As Long
 
 Sub processUnknownValue()
 commonUnsupported False, Clipboard.GetData
@@ -36,6 +36,7 @@ commonUnsupported False, Clipboard.GetData
 End Sub
 
 Sub processFileList()
+Dim tstr As String
   Dim lHandle As Long
   Dim lpResults As Long
   Dim lRet As Long
@@ -70,12 +71,14 @@ Sub processFileList()
       vNames(i) = Replace(vNames(i), Chr(10), "")
       vNames(i) = Replace(vNames(i), Chr(13), "")
       processFilename vNames(i)
+      tstr = tstr & vNames(i) & vbCrLf
       i = i + 1
      Wend
      Log "文件总数：" & i, False, False
    End If
   End If
   CloseClipboard
+  processText_NewFile tstr, processString(File_LogPath), False
 End Sub
 
 Sub processFilename(ByVal name As String)
@@ -83,7 +86,7 @@ Log "文件：" & name, False, False
 End Sub
 
 Sub processBitmap()
-If Bitmap_Save = 1 Then CreateThreadE AddressOf SaveBitmapThread, 0, 0, 0, 0
+If Bitmap_Save = 1 Then SaveBitmapThread '多线程功能没有完善 - CreateThreadE AddressOf SaveBitmapThread, 0, 0, 0, 0
 End Sub
 
 Sub SaveBitmapThread()
@@ -91,7 +94,7 @@ Dim frmpic1 As FrmSavePicture
 Set frmpic1 = New FrmSavePicture
 Load frmpic1
 Unload frmpic1
-Set frmpic1 = Null
+Set frmpic1 = Nothing
 End Sub
 
 Sub processText()
@@ -99,6 +102,7 @@ Dim Temps As String
 Dim Log As String
 Static Filename As String
 Temps = Clipboard.GetText
+If (Len(Temps) > Text_FilterMinBytes) And (Text_FilterMaxBytes = 0 Or Len(Temps) < Text_FilterMinBytes) Then
 'Log "文本："
 'Log Temps, False
 If Text_MergeFile = False Or Filename = "" Then Filename = processString(Text_Name)
@@ -107,6 +111,7 @@ If Text_MergeFile = False Then
     processText_NewFile Temps, Filename, Log
     Else
     processText_Merge Temps, Filename, Log
+End If
 End If
 End Sub
 

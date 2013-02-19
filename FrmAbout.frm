@@ -149,7 +149,7 @@ Unload Me
 End Sub
 
 Private Sub Form_Load()
-LblTitle.Caption = "QuickClip " & GetFileVerInfo(APPPath("QuickClip.exe"))(0)
+LblTitle.Caption = "QuickClip " & frmMain.ver 'GetFileVerInfo(APPPath("QuickClip.exe"))(0)
 Me.Show
 End Sub
 
