@@ -1,6 +1,18 @@
 Attribute VB_Name = "Settings"
 '程序的全局设置项
 Option Explicit
+'获取系统时间
+Private Type SYSTEMTIME
+        wYear As Integer
+        wMonth As Integer
+        wDayOfWeek As Integer
+        wDay As Integer
+        wHour As Integer
+        wMinute As Integer
+        wSecond As Integer
+        wMilliseconds As Integer
+End Type
+Private Declare Sub GetSystemTime Lib "kernel32" (lpSystemTime As SYSTEMTIME)
 '格式常量
 Const DateFormat As String = "yyyymmdd"
 Const TimeFormat As String = "hhmmss"
@@ -86,6 +98,16 @@ processString = str
 '日期时间
 processString = Replace(processString, "%DATE%", Format(Date, DateFormat))
 processString = Replace(processString, "%TIME%", Format(Time, TimeFormat))
+Dim ts As SYSTEMTIME
+GetSystemTime ts
+processString = Replace(processString, "%YEAR%", ts.wYear)
+processString = Replace(processString, "%MONTH%", ts.wMonth)
+processString = Replace(processString, "%DAYOFWEEK%", ts.wDayOfWeek)
+processString = Replace(processString, "%DAY%", ts.wDay)
+processString = Replace(processString, "%HOUR%", ts.wHour)
+processString = Replace(processString, "%MINUTE%", ts.wMinute)
+processString = Replace(processString, "%SECOND%", ts.wSecond)
+processString = Replace(processString, "%MS%", ts.wMilliseconds)
 '本应用程序信息
 processString = Replace(processString, "%APPPATH%", APPPath())
 processString = Replace(processString, "%APPDRIVE%", Left(APPPath(), 1))

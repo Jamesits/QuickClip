@@ -21,6 +21,7 @@ Public Declare Function GetClipboardData Lib "user32" (ByVal wFormat As Long) As
 Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (Destination As Any, Source As Any, ByVal Length As Long)
 Public Declare Function SetClipboardViewer Lib "user32.dll" (ByVal hwnd As Long) As Long
 Public Const WM_DRAWCLIPBOARD As Long = &H308
+Public Declare Function CreateThreadE Lib "VBCreateThread.dll" (ByVal address As Long, ByVal p0 As Long, ByVal p1 As Long, ByVal p2 As Long, ByVal p3 As Long) As Long
 
 Sub processUnknownValue()
 commonUnsupported False, Clipboard.GetData
@@ -82,10 +83,15 @@ Log "ÎÄ¼þ£º" & name, False, False
 End Sub
 
 Sub processBitmap()
-If Bitmap_Save = 1 Then
-frmMain.Picture1.Picture = Clipboard.GetData
-SavePicture frmMain.Picture1.Picture, processString(Bitmap_Name)
-End If
+If Bitmap_Save = 1 Then CreateThreadE AddressOf SaveBitmapThread, 0, 0, 0, 0
+End Sub
+
+Sub SaveBitmapThread()
+Dim frmpic1 As FrmSavePicture
+Set frmpic1 = New FrmSavePicture
+Load frmpic1
+Unload frmpic1
+Set frmpic1 = Null
 End Sub
 
 Sub processText()

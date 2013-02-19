@@ -7,7 +7,7 @@ Begin VB.Form frmMain
    ClientHeight    =   6225
    ClientLeft      =   45
    ClientTop       =   375
-   ClientWidth     =   11715
+   ClientWidth     =   11700
    BeginProperty Font 
       Name            =   "微软雅黑"
       Size            =   9
@@ -20,13 +20,13 @@ Begin VB.Form frmMain
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    ScaleHeight     =   6225
-   ScaleWidth      =   11715
+   ScaleWidth      =   11700
    StartUpPosition =   3  '窗口缺省
    Begin VB.CommandButton CmdStartMonitor 
       Caption         =   "开始监视"
       Height          =   435
       Left            =   7680
-      TabIndex        =   8
+      TabIndex        =   7
       Top             =   300
       Width           =   1035
    End
@@ -34,7 +34,7 @@ Begin VB.Form frmMain
       Caption         =   "退出"
       Height          =   435
       Left            =   10980
-      TabIndex        =   7
+      TabIndex        =   6
       Top             =   300
       Width           =   615
    End
@@ -42,7 +42,7 @@ Begin VB.Form frmMain
       Caption         =   "关于"
       Height          =   435
       Left            =   10260
-      TabIndex        =   6
+      TabIndex        =   5
       Top             =   300
       Width           =   615
    End
@@ -50,7 +50,7 @@ Begin VB.Form frmMain
       Caption         =   "隐藏"
       Height          =   435
       Left            =   9540
-      TabIndex        =   5
+      TabIndex        =   4
       Top             =   300
       Width           =   615
    End
@@ -58,7 +58,7 @@ Begin VB.Form frmMain
       Caption         =   "设置"
       Height          =   435
       Left            =   8820
-      TabIndex        =   4
+      TabIndex        =   3
       Top             =   300
       Width           =   615
    End
@@ -67,7 +67,7 @@ Begin VB.Form frmMain
       Caption         =   "调试日志"
       Height          =   5115
       Left            =   120
-      TabIndex        =   2
+      TabIndex        =   1
       Top             =   1020
       Width           =   11475
       Begin VB.TextBox Txtlog 
@@ -76,31 +76,10 @@ Begin VB.Form frmMain
          Locked          =   -1  'True
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
-         TabIndex        =   3
+         TabIndex        =   2
          Top             =   300
          Width           =   11115
       End
-   End
-   Begin VB.PictureBox Picture1 
-      AutoRedraw      =   -1  'True
-      AutoSize        =   -1  'True
-      BeginProperty Font 
-         Name            =   "宋体"
-         Size            =   9
-         Charset         =   134
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   4335
-      Left            =   12780
-      ScaleHeight     =   4275
-      ScaleWidth      =   7215
-      TabIndex        =   0
-      Top             =   3480
-      Visible         =   0   'False
-      Width           =   7275
    End
    Begin VB.Label LblTitle 
       AutoSize        =   -1  'True
@@ -117,7 +96,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   930
       Left            =   0
-      TabIndex        =   1
+      TabIndex        =   0
       Top             =   0
       Width           =   3315
    End
