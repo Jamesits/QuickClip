@@ -4,7 +4,7 @@ Begin VB.Form frmMain
    BackColor       =   &H00FFFFFF&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "QuickClip"
-   ClientHeight    =   6225
+   ClientHeight    =   990
    ClientLeft      =   45
    ClientTop       =   375
    ClientWidth     =   11700
@@ -19,7 +19,7 @@ Begin VB.Form frmMain
    EndProperty
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
-   ScaleHeight     =   6225
+   ScaleHeight     =   990
    ScaleWidth      =   11700
    StartUpPosition =   3  '´°¿ÚÈ±Ê¡
    Begin VB.CommandButton CmdStartMonitor 
@@ -48,6 +48,7 @@ Begin VB.Form frmMain
    End
    Begin VB.CommandButton CmdHide 
       Caption         =   "Òþ²Ø"
+      Enabled         =   0   'False
       Height          =   435
       Left            =   9540
       TabIndex        =   4
@@ -110,16 +111,15 @@ Attribute VB_Exposed = False
 Option Explicit
 Public ver As String
 Private Sub CmdAbout_Click()
-FrmAbout.Show
+FrmAbout.Show vbModal
 End Sub
 
 Private Sub CmdQuit_Click()
-Unload Me
-End
+Quit
 End Sub
 
 Private Sub CmdSetting_Click()
-FrmSetting.Show
+FrmSetting.Show vbModal
 End Sub
 
 Private Sub CmdStartMonitor_Click()
@@ -136,6 +136,7 @@ Private Sub Form_Load()
     LblTitle.Caption = "QuickClip " & ver
     Load FrmCatchMsg
     If Common_AutoCapture Then CmdStartMonitor_Click
+    If Log_ShowLogAtFrmMain Then Me.Height = 6645 Else Me.Height = 1410
 End Sub
 
 

@@ -38,6 +38,7 @@ Public File_LogPath As String
 Public File_SaveFolder As String
 Public Log_Save As Long
 Public Log_Filename As String
+Public Log_ShowLogAtFrmMain As Long
 '启动时处理项
 Public SavePath As String '保存位置
 Public LogFileName As String '日志文件位置
@@ -68,10 +69,11 @@ SetIniS "File", "LogPath", File_LogPath
 SetIniS "File", "SaveFolder", File_SaveFolder
 SetIniN "Log", "Save", Log_Save
 SetIniS "Log", "Name", Log_Filename
+SetIniN "Log", "ShowAtMainWindow", Log_ShowLogAtFrmMain
 End Sub
 
 Public Sub LoadFromINI()
-
+'Read
 GetIniS "Common", "SavePath", Common_SavePath, "%APPPATH%\Saved\%DATE%%TIME%"
 GetIniN "Common", "HideAfterStart", Common_HideAfterStart, 0
 GetIniN "Common", "AutoCapture", Common_AutoCapture, 0
@@ -91,6 +93,9 @@ GetIniS "File", "LogPath", File_LogPath, "QClip_%DATE%%TIME%.log"
 GetIniS "File", "SaveFolder", File_SaveFolder, "Files_%DATE%TIME%"
 GetIniN "Log", "Save", Log_Save, 0
 GetIniS "Log", "Name", Log_Filename, "QClipLog_%DATE%%TIME%.log"
+GetIniN "Log", "ShowAtMainWindow", Log_ShowLogAtFrmMain, 0
+'check(left out)
+
 End Sub
 
 Public Function processString(str As String)

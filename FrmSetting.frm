@@ -32,6 +32,15 @@ Begin VB.Form FrmSetting
       TabIndex        =   38
       Top             =   3240
       Width           =   6795
+      Begin VB.CheckBox ChkShowLog 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "在主界面显示日志"
+         Height          =   375
+         Left            =   180
+         TabIndex        =   44
+         Top             =   1020
+         Width           =   1755
+      End
       Begin VB.TextBox TxtLogPath 
          Height          =   375
          Left            =   1320
@@ -206,7 +215,6 @@ Begin VB.Form FrmSetting
       Begin VB.CheckBox ChkClearBeforeClose 
          BackColor       =   &H00FFFFFF&
          Caption         =   "关闭软件时清空剪贴板内容"
-         Enabled         =   0   'False
          Height          =   315
          Left            =   2520
          TabIndex        =   42
