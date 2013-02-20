@@ -33,4 +33,11 @@ If Clipboard.GetFormat(vbCFText) Then
     End If
 End Sub
 
-
+Public Sub Quit()
+Dim f As Form
+For Each f In Forms
+Unload f
+Next
+If Common_ClearBeforeClose Then Clipboard.Clear
+End
+End Sub
