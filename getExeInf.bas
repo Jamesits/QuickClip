@@ -43,26 +43,26 @@ Public Function GetFileVerInfo(FullFileName As String) As String()
         GetFileVerInfo = strFileVer
         Exit Function
     End If
-              
+
     strFileVer(0) = "FileVersion"
     strFileVer(1) = "InternalName"
     strFileVer(2) = "CompanyName"
     strFileVer(3) = "LegalCopyright"
     strFileVer(4) = "FileDescription"
-    
+
     MoveMemory bytebuffer(0), lVerPointer, lBufferLen
     HexNumber = bytebuffer(2) + bytebuffer(3) * &H100 + bytebuffer(0) * &H10000 + bytebuffer(1) * &H1000000
     rc = CLng(bytebuffer(0) + bytebuffer(1) * &H100)
     Lang_Charset_String = Hex(HexNumber)
-      
+
     Do While Len(Lang_Charset_String) < 8
         Lang_Charset_String = "0" & Lang_Charset_String
     Loop
-      
+
     strtemp = String(260, Asc(Syn_kg))
     rc = VerLanguageName(rc, strtemp, CLng(255))
     strFileVer(5) = StripTerminator(strtemp)
-    
+
     strtemp = ""
     For i = 0 To 4
         Buffer = String(260, Asc(Syn_kg))

@@ -7,6 +7,7 @@ Begin VB.Form FrmSavePicture
    ClientTop       =   0
    ClientWidth     =   4800
    ControlBox      =   0   'False
+   Icon            =   "FrmSavePicture.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
@@ -37,5 +38,5 @@ Option Explicit
 Private Sub Form_Load()
 Picture1.Picture = Clipboard.GetData
 SavePicture Picture1.Picture, processString(Bitmap_Name)
-Debug.Print "file saved!"
+'Debug.Print "file saved!"
 End Sub

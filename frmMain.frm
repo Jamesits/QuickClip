@@ -4,10 +4,10 @@ Begin VB.Form frmMain
    BackColor       =   &H00FFFFFF&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "QuickClip"
-   ClientHeight    =   990
+   ClientHeight    =   765
    ClientLeft      =   45
    ClientTop       =   375
-   ClientWidth     =   11700
+   ClientWidth     =   4170
    BeginProperty Font 
       Name            =   "微软雅黑"
       Size            =   9
@@ -17,70 +17,52 @@ Begin VB.Form frmMain
       Italic          =   0   'False
       Strikethrough   =   0   'False
    EndProperty
+   Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
-   ScaleHeight     =   990
-   ScaleWidth      =   11700
+   ScaleHeight     =   765
+   ScaleWidth      =   4170
    StartUpPosition =   3  '窗口缺省
    Begin VB.CommandButton CmdStartMonitor 
       Caption         =   "开始监视"
       Height          =   435
-      Left            =   7680
-      TabIndex        =   7
-      Top             =   300
+      Left            =   120
+      TabIndex        =   5
+      Top             =   180
       Width           =   1035
    End
    Begin VB.CommandButton CmdQuit 
       Caption         =   "退出"
       Height          =   435
-      Left            =   10980
-      TabIndex        =   6
-      Top             =   300
+      Left            =   3420
+      TabIndex        =   4
+      Top             =   180
       Width           =   615
    End
    Begin VB.CommandButton CmdAbout 
       Caption         =   "关于"
       Height          =   435
-      Left            =   10260
-      TabIndex        =   5
-      Top             =   300
+      Left            =   2700
+      TabIndex        =   3
+      Top             =   180
       Width           =   615
    End
    Begin VB.CommandButton CmdHide 
       Caption         =   "隐藏"
       Enabled         =   0   'False
       Height          =   435
-      Left            =   9540
-      TabIndex        =   4
-      Top             =   300
+      Left            =   1980
+      TabIndex        =   2
+      Top             =   180
       Width           =   615
    End
    Begin VB.CommandButton CmdSetting 
       Caption         =   "设置"
       Height          =   435
-      Left            =   8820
-      TabIndex        =   3
-      Top             =   300
-      Width           =   615
-   End
-   Begin VB.Frame FrmLog 
-      BackColor       =   &H00FFFFFF&
-      Caption         =   "调试日志"
-      Height          =   5115
-      Left            =   120
+      Left            =   1260
       TabIndex        =   1
-      Top             =   1020
-      Width           =   11475
-      Begin VB.TextBox Txtlog 
-         Height          =   4650
-         Left            =   180
-         Locked          =   -1  'True
-         MultiLine       =   -1  'True
-         ScrollBars      =   2  'Vertical
-         TabIndex        =   2
-         Top             =   300
-         Width           =   11115
-      End
+      Top             =   180
+      Width           =   615
    End
    Begin VB.Label LblTitle 
       AutoSize        =   -1  'True
@@ -96,9 +78,10 @@ Begin VB.Form frmMain
          Strikethrough   =   0   'False
       EndProperty
       Height          =   930
-      Left            =   0
+      Left            =   6060
       TabIndex        =   0
-      Top             =   0
+      Top             =   -120
+      Visible         =   0   'False
       Width           =   3315
    End
 End
@@ -136,7 +119,7 @@ Private Sub Form_Load()
     LblTitle.Caption = "QuickClip " & ver
     Load FrmCatchMsg
     If Common_AutoCapture Then CmdStartMonitor_Click
-    If Log_ShowLogAtFrmMain Then Me.Height = 6645 Else Me.Height = 1410
+    If Log_ShowLogAtFrmMain Then FrmLog.Show
 End Sub
 
 

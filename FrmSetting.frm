@@ -17,19 +17,118 @@ Begin VB.Form FrmSetting
       Italic          =   0   'False
       Strikethrough   =   0   'False
    EndProperty
+   Icon            =   "FrmSetting.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   5625
    ScaleWidth      =   13665
    ShowInTaskbar   =   0   'False
-   StartUpPosition =   3  '窗口缺省
+   StartUpPosition =   2  '屏幕中心
+   Begin VB.Frame FrmRecInf 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "同时写入日志信息"
+      Height          =   1215
+      Left            =   240
+      TabIndex        =   41
+      Top             =   3540
+      Width           =   2415
+      Begin VB.OptionButton OptTxtRecInf 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "不写入"
+         Height          =   315
+         Index           =   0
+         Left            =   240
+         TabIndex        =   44
+         Top             =   240
+         Width           =   1635
+      End
+      Begin VB.OptionButton OptTxtRecInf 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "写入到文件头部"
+         Height          =   315
+         Index           =   1
+         Left            =   240
+         TabIndex        =   43
+         Top             =   540
+         Value           =   -1  'True
+         Width           =   1755
+      End
+      Begin VB.OptionButton OptTxtRecInf 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "写入到文件末尾"
+         Height          =   315
+         Index           =   2
+         Left            =   240
+         TabIndex        =   42
+         Top             =   840
+         Width           =   1695
+      End
+   End
+   Begin VB.Frame FrmTxtFilter 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "过滤器选项"
+      Height          =   1215
+      Left            =   2880
+      TabIndex        =   35
+      Top             =   3540
+      Width           =   3675
+      Begin VB.TextBox TxtTextFilterMin 
+         Height          =   375
+         Left            =   1140
+         TabIndex        =   37
+         Text            =   "0"
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.TextBox TxtTextFilterMax 
+         Height          =   375
+         Left            =   1140
+         TabIndex        =   36
+         Text            =   "0"
+         Top             =   720
+         Width           =   1095
+      End
+      Begin VB.Label LblTxtFilterMin 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
+         Caption         =   "最小字节数"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   40
+         Top             =   300
+         Width           =   900
+      End
+      Begin VB.Label LblTxtMaxValue 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
+         Caption         =   "最大字节数"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   39
+         Top             =   780
+         Width           =   900
+      End
+      Begin VB.Label LblTextFilterTip 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
+         Caption         =   "（0为不限制）"
+         Height          =   255
+         Left            =   2280
+         TabIndex        =   38
+         Top             =   780
+         Width           =   1185
+      End
+   End
    Begin VB.Frame FrmDebugSetting 
       BackColor       =   &H00FFFFFF&
       Caption         =   "调试功能"
       Height          =   1695
       Left            =   6780
-      TabIndex        =   38
+      TabIndex        =   28
       Top             =   3240
       Width           =   6795
       Begin VB.CheckBox ChkShowLog 
@@ -37,14 +136,14 @@ Begin VB.Form FrmSetting
          Caption         =   "在主界面显示日志"
          Height          =   375
          Left            =   180
-         TabIndex        =   44
+         TabIndex        =   34
          Top             =   1020
          Width           =   1755
       End
       Begin VB.TextBox TxtLogPath 
          Height          =   375
          Left            =   1320
-         TabIndex        =   41
+         TabIndex        =   31
          Text            =   "QClipLog_%DATE%%TIME%.log"
          Top             =   600
          Width           =   4155
@@ -54,7 +153,7 @@ Begin VB.Form FrmSetting
          Caption         =   "记录日志"
          Height          =   315
          Left            =   180
-         TabIndex        =   39
+         TabIndex        =   29
          Top             =   300
          Width           =   1035
       End
@@ -65,7 +164,7 @@ Begin VB.Form FrmSetting
          Caption         =   "日志文件位置"
          Height          =   255
          Left            =   180
-         TabIndex        =   40
+         TabIndex        =   30
          Top             =   660
          Width           =   1080
       End
@@ -75,14 +174,14 @@ Begin VB.Form FrmSetting
       Caption         =   "文件"
       Height          =   1515
       Left            =   6780
-      TabIndex        =   23
+      TabIndex        =   19
       Top             =   1680
       Width           =   6795
       Begin VB.TextBox TxtFileFolderPath 
          Enabled         =   0   'False
          Height          =   375
          Left            =   2520
-         TabIndex        =   30
+         TabIndex        =   26
          Text            =   "Files_%DATE%TIME%"
          Top             =   1080
          Width           =   4095
@@ -90,7 +189,7 @@ Begin VB.Form FrmSetting
       Begin VB.TextBox TxtFileSaveNameRule 
          Height          =   375
          Left            =   2520
-         TabIndex        =   28
+         TabIndex        =   24
          Text            =   "QClip_%DATE%%TIME%.log"
          Top             =   660
          Width           =   4095
@@ -101,7 +200,7 @@ Begin VB.Form FrmSetting
          Height          =   255
          Index           =   1
          Left            =   180
-         TabIndex        =   26
+         TabIndex        =   22
          Top             =   720
          Value           =   -1  'True
          Width           =   1695
@@ -113,7 +212,7 @@ Begin VB.Form FrmSetting
          Height          =   255
          Index           =   2
          Left            =   180
-         TabIndex        =   25
+         TabIndex        =   21
          Top             =   1140
          Width           =   1095
       End
@@ -123,7 +222,7 @@ Begin VB.Form FrmSetting
          Height          =   255
          Index           =   0
          Left            =   180
-         TabIndex        =   24
+         TabIndex        =   20
          Top             =   300
          Width           =   2235
       End
@@ -133,7 +232,7 @@ Begin VB.Form FrmSetting
          Caption         =   "复制到文件夹"
          Height          =   255
          Left            =   1320
-         TabIndex        =   29
+         TabIndex        =   25
          Top             =   1140
          Width           =   1080
       End
@@ -144,7 +243,7 @@ Begin VB.Form FrmSetting
          Caption         =   "保存到"
          Height          =   255
          Left            =   1860
-         TabIndex        =   27
+         TabIndex        =   23
          Top             =   720
          Width           =   540
       End
@@ -154,13 +253,13 @@ Begin VB.Form FrmSetting
       Caption         =   "位图类型"
       Height          =   1575
       Left            =   6780
-      TabIndex        =   19
+      TabIndex        =   15
       Top             =   60
       Width           =   6795
       Begin VB.TextBox TxtBmpNamingRule 
          Height          =   375
          Left            =   960
-         TabIndex        =   21
+         TabIndex        =   17
          Text            =   "QClip_%DATE%%TIME%.bmp"
          Top             =   660
          Width           =   5535
@@ -170,7 +269,7 @@ Begin VB.Form FrmSetting
          Caption         =   "保存"
          Height          =   315
          Left            =   180
-         TabIndex        =   20
+         TabIndex        =   16
          Top             =   300
          Value           =   1  'Checked
          Width           =   1695
@@ -182,7 +281,7 @@ Begin VB.Form FrmSetting
          Caption         =   "命名规则"
          Height          =   255
          Left            =   180
-         TabIndex        =   22
+         TabIndex        =   18
          Top             =   720
          Width           =   720
       End
@@ -192,7 +291,7 @@ Begin VB.Form FrmSetting
       Caption         =   "取消"
       Height          =   435
       Left            =   12720
-      TabIndex        =   18
+      TabIndex        =   14
       Top             =   5100
       Width           =   855
    End
@@ -200,7 +299,7 @@ Begin VB.Form FrmSetting
       Caption         =   "保存"
       Height          =   435
       Left            =   11640
-      TabIndex        =   17
+      TabIndex        =   13
       Top             =   5100
       Width           =   915
    End
@@ -217,7 +316,7 @@ Begin VB.Form FrmSetting
          Caption         =   "关闭软件时清空剪贴板内容"
          Height          =   315
          Left            =   2520
-         TabIndex        =   42
+         TabIndex        =   32
          Top             =   1020
          Width           =   3135
       End
@@ -227,7 +326,7 @@ Begin VB.Form FrmSetting
          Enabled         =   0   'False
          Height          =   255
          Left            =   2520
-         TabIndex        =   31
+         TabIndex        =   27
          Top             =   720
          Width           =   3555
       End
@@ -288,104 +387,6 @@ Begin VB.Form FrmSetting
       TabIndex        =   0
       Top             =   1680
       Width           =   6675
-      Begin VB.Frame FrmTxtFilter 
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "过滤器选项"
-         Height          =   1215
-         Left            =   2880
-         TabIndex        =   32
-         Top             =   1920
-         Width           =   3675
-         Begin VB.TextBox TxtTextFilterMax 
-            Height          =   375
-            Left            =   1140
-            TabIndex        =   36
-            Text            =   "0"
-            Top             =   720
-            Width           =   1095
-         End
-         Begin VB.TextBox TxtTextFilterMin 
-            Height          =   375
-            Left            =   1140
-            TabIndex        =   34
-            Text            =   "0"
-            Top             =   240
-            Width           =   1095
-         End
-         Begin VB.Label LblTextFilterTip 
-            AutoSize        =   -1  'True
-            BackColor       =   &H00FFFFFF&
-            BackStyle       =   0  'Transparent
-            Caption         =   "（0为不限制）"
-            Height          =   255
-            Left            =   2280
-            TabIndex        =   37
-            Top             =   780
-            Width           =   1185
-         End
-         Begin VB.Label LblTxtMaxValue 
-            AutoSize        =   -1  'True
-            BackColor       =   &H00FFFFFF&
-            BackStyle       =   0  'Transparent
-            Caption         =   "最大字节数"
-            Height          =   255
-            Left            =   120
-            TabIndex        =   35
-            Top             =   780
-            Width           =   900
-         End
-         Begin VB.Label LblTxtFilterMin 
-            AutoSize        =   -1  'True
-            BackColor       =   &H00FFFFFF&
-            BackStyle       =   0  'Transparent
-            Caption         =   "最小字节数"
-            Height          =   255
-            Left            =   120
-            TabIndex        =   33
-            Top             =   300
-            Width           =   900
-         End
-      End
-      Begin VB.Frame FrmRecInf 
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "同时写入日志信息"
-         Height          =   1215
-         Left            =   240
-         TabIndex        =   13
-         Top             =   1920
-         Width           =   2415
-         Begin VB.OptionButton OptTxtRecInf 
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "写入到文件末尾"
-            Height          =   315
-            Index           =   2
-            Left            =   240
-            TabIndex        =   16
-            Top             =   840
-            Width           =   1695
-         End
-         Begin VB.OptionButton OptTxtRecInf 
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "写入到文件头部"
-            Height          =   315
-            Index           =   1
-            Left            =   240
-            TabIndex        =   15
-            Top             =   540
-            Value           =   -1  'True
-            Width           =   1755
-         End
-         Begin VB.OptionButton OptTxtRecInf 
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "不写入"
-            Height          =   315
-            Index           =   0
-            Left            =   240
-            TabIndex        =   14
-            Top             =   240
-            Width           =   1635
-         End
-      End
       Begin VB.TextBox TxtMergeSeparator 
          Height          =   375
          Left            =   900
@@ -451,7 +452,7 @@ Begin VB.Form FrmSetting
       ForeColor       =   &H000000FF&
       Height          =   255
       Left            =   6900
-      TabIndex        =   43
+      TabIndex        =   33
       Top             =   5160
       Width           =   4605
    End
@@ -505,6 +506,7 @@ TxtFileSaveNameRule.Text = File_LogPath
 TxtFileFolderPath.Text = File_SaveFolder
 ChkRecLog.Value = Log_Save
 TxtLogPath.Text = Log_Filename
+ChkShowLog.Value = Log_ShowLogAtFrmMain
 End Sub
 
 Private Sub SaveSettings()
@@ -526,6 +528,7 @@ File_LogPath = TxtFileSaveNameRule.Text
 File_SaveFolder = TxtFileFolderPath.Text
 Log_Save = ChkRecLog.Value
 Log_Filename = TxtLogPath.Text
+Log_ShowLogAtFrmMain = ChkShowLog.Value
 End Sub
 
 

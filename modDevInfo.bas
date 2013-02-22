@@ -81,31 +81,31 @@ Public Function GetDevInfo(ByVal strDrive As String) As DEVICE_INFORMATION
     Dim lngResult       As Long
     Dim btBuffer(9999)  As Byte
     Dim udtOut          As STORAGE_DEVICE_DESCRIPTOR
-    
+
     hDrive = CreateFile("\\.\" & Left$(strDrive, 1) & ":", 0, _
                         FILE_SHARE_READ Or FILE_SHARE_WRITE, _
                         ByVal 0&, OPEN_EXISTING, 0, 0)
 
     If hDrive = -1 Then Exit Function
-    
+
     With udtQuery
         .PropertyId = StorageDeviceProperty
         .QueryType = PropertyStandardQuery
     End With
-    
+
     lngResult = DeviceIoControl(hDrive, IOCTL_STORAGE_QUERY_PROPERTY, _
                                 udtQuery, LenB(udtQuery), _
                                 btBuffer(0), UBound(btBuffer) + 1, _
                                 dwOutBytes, ByVal 0&)
-        
+
     If lngResult Then
         CpyMem udtOut, btBuffer(0), Len(udtOut)
-        
+
         With GetDevInfo
             .Valid = True
             .BusType = udtOut.BusType
             .Removable = CBool(udtOut.RemovableMedia)
-            
+
             If udtOut.ProductIdOffset > 0 Then _
                 .ProductID = StringCopy(VarPtr(btBuffer(udtOut.ProductIdOffset)))
             If udtOut.ProductRevisionOffset > 0 Then _
@@ -117,13 +117,13 @@ Public Function GetDevInfo(ByVal strDrive As String) As DEVICE_INFORMATION
     Else
         GetDevInfo.Valid = False
     End If
-    
+
     CloseHandle hDrive
 End Function
 
 Private Function StringCopy(ByVal pBuffer As Long) As String
     Dim tmp As String
-    
+
     tmp = Space(lstrlen(ByVal pBuffer))
     lstrcpy ByVal tmp, ByVal pBuffer
     StringCopy = Trim$(tmp)
