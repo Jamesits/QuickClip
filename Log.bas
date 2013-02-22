@@ -34,7 +34,7 @@ If showtime Then
 Temps = "[" & Time & "] " & str
 Else: Temps = str & vbCrLf
 End If
-If appendReturn Then frmMain.Txtlog.Text = frmMain.Txtlog.Text & Temps & vbCrLf Else frmMain.Txtlog.Text = frmMain.Txtlog.Text & Temps
+If appendReturn Then FrmLog.Txtlog.Text = FrmLog.Txtlog.Text & Temps & vbCrLf Else FrmLog.Txtlog.Text = FrmLog.Txtlog.Text & Temps
 If Log_Save Then
 Log_Write Temps
 End If

@@ -133,7 +133,7 @@ processString = Replace(processString, "%Sys_CreationClassName%", Sys_CreationCl
 processString = Replace(processString, "%Sys_Description%", Sys_Description)
 '考虑加入环境变量选择器
 'processString = Replace(processString, "%%",1 )
-Debug.Print processString
+'Debug.Print processString
 End Function
 
 Public Function ConcatPath(ByVal path1 As String, Optional ByVal path2 As String, Optional ByVal VerifyUnavailableChar As Boolean) As String

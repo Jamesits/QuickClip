@@ -18,6 +18,7 @@ Form=FrmCatchMsg.frm
 Module=GlobalSwitch; GlobalSwitch.bas
 Form=FrmSavePicture.frm
 ResFile32="Resources.res"
+Form=FrmLog.frm
 IconForm="frmMain"
 Startup="FrmLoad"
 HelpFile=""
@@ -29,7 +30,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=62
+RevisionVer=74
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionCompanyName="Createnhance Team"
@@ -53,3 +54,16 @@ DebugStartupOption=0
 
 [MS Transaction Server]
 AutoRefresh=1
+
+[vbAdvance]
+IsConsole=0
+HasStubFile=0
+GenerateMap=0
+TSAware=0
+XPManifest=0
+ResBuildName=.\QuickClip.dll
+ReplaceIcon=1
+AppIconFile=.\Media\5-content-copy.ico
+SendCommandArgs=0
+SymbDbgPref=0
+RevisionVersion=0

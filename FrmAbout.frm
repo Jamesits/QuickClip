@@ -3,15 +3,16 @@ Begin VB.Form FrmAbout
    BackColor       =   &H00FFFFFF&
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "关于QuickClip"
-   ClientHeight    =   3060
+   ClientHeight    =   2490
    ClientLeft      =   45
    ClientTop       =   375
-   ClientWidth     =   7065
+   ClientWidth     =   7455
+   Icon            =   "FrmAbout.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   3060
-   ScaleWidth      =   7065
+   ScaleHeight     =   2490
+   ScaleWidth      =   7455
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  '屏幕中心
    Begin VB.CommandButton CmdClose 
@@ -27,10 +28,17 @@ Begin VB.Form FrmAbout
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   3120
+      Left            =   6180
       TabIndex        =   0
-      Top             =   2340
+      Top             =   1860
       Width           =   915
+   End
+   Begin VB.Image Image1 
+      Height          =   960
+      Left            =   180
+      Picture         =   "FrmAbout.frx":EDF2
+      Top             =   420
+      Width           =   960
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
@@ -48,11 +56,11 @@ Begin VB.Form FrmAbout
       EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   255
-      Left            =   3480
-      MouseIcon       =   "FrmAbout.frx":0000
+      Left            =   4260
+      MouseIcon       =   "FrmAbout.frx":11E34
       MousePointer    =   99  'Custom
       TabIndex        =   5
-      Top             =   1620
+      Top             =   1380
       Width           =   2700
    End
    Begin VB.Label Label1 
@@ -70,9 +78,9 @@ Begin VB.Form FrmAbout
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   660
+      Left            =   1440
       TabIndex        =   4
-      Top             =   1620
+      Top             =   1380
       Width           =   2805
    End
    Begin VB.Label LblTitle 
@@ -90,9 +98,9 @@ Begin VB.Form FrmAbout
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   660
+      Left            =   1440
       TabIndex        =   3
-      Top             =   300
+      Top             =   420
       Width           =   1710
    End
    Begin VB.Label LblAuthor 
@@ -110,9 +118,9 @@ Begin VB.Form FrmAbout
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   660
+      Left            =   1440
       TabIndex        =   2
-      Top             =   1140
+      Top             =   1020
       Width           =   4755
    End
    Begin VB.Label LblDescription 
@@ -130,7 +138,7 @@ Begin VB.Form FrmAbout
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   660
+      Left            =   1440
       TabIndex        =   1
       Top             =   720
       Width           =   3420
@@ -150,7 +158,6 @@ End Sub
 
 Private Sub Form_Load()
 LblTitle.Caption = "QuickClip " & frmMain.ver 'GetFileVerInfo(APPPath("QuickClip.exe"))(0)
-Me.Show
 End Sub
 
 Private Sub Label2_Click()
