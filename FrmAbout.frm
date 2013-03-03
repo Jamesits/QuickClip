@@ -6,13 +6,13 @@ Begin VB.Form FrmAbout
    ClientHeight    =   2490
    ClientLeft      =   45
    ClientTop       =   375
-   ClientWidth     =   7455
+   ClientWidth     =   7875
    Icon            =   "FrmAbout.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   2490
-   ScaleWidth      =   7455
+   ScaleWidth      =   7875
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'ÆÁÄ»ÖÐÐÄ
    Begin VB.CommandButton CmdClose 
@@ -28,7 +28,7 @@ Begin VB.Form FrmAbout
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   6180
+      Left            =   6840
       TabIndex        =   0
       Top             =   1860
       Width           =   915
@@ -44,7 +44,7 @@ Begin VB.Form FrmAbout
       AutoSize        =   -1  'True
       BackColor       =   &H00FFFFFF&
       BackStyle       =   0  'Transparent
-      Caption         =   "https://sourceforge.net/p/qclip"
+      Caption         =   "https://sourceforge.net/projects/qclip"
       BeginProperty Font 
          Name            =   "Î¢ÈíÑÅºÚ"
          Size            =   9
@@ -61,7 +61,7 @@ Begin VB.Form FrmAbout
       MousePointer    =   99  'Custom
       TabIndex        =   5
       Top             =   1380
-      Width           =   2700
+      Width           =   3285
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
@@ -161,5 +161,5 @@ LblTitle.Caption = "QuickClip " & frmMain.ver 'GetFileVerInfo(APPPath("QuickClip
 End Sub
 
 Private Sub Label2_Click()
-Shell "cmd /c start https://sourceforge.net/p/qclip", vbHide
+Shell "cmd /c start https://sourceforge.net/projects/qclip", vbHide
 End Sub
