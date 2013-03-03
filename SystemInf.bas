@@ -19,6 +19,7 @@ Public Sys_Description As String '计算机架构（类型）
 
 Public Sub GetSystemInf()
 Dim System, item, i  As Integer
+On Error Resume Next
 Set System = GetObject("winmgmts:").InstancesOf("Win32_ComputerSystem")
 For Each item In System
     Sys_ComputerName = item.name
